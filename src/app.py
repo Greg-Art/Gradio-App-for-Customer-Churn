@@ -20,7 +20,7 @@ model= joblib.load("C:/Users/Gregory Arthur/Desktop/models/LR.joblib")
 
 model
 
-test= pd.read_csv("C:/Users/Gregory Arthur/Desktop/Vodafone_churn.csv")
+test= pd.read_csv("dataframes/Vodafone_churn.csv")
 test
 
 ##testing our model
