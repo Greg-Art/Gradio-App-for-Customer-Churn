@@ -81,9 +81,11 @@ output = gr.outputs.HighlightedText(color_map={
 
 ##using gradio blocks to beautify my output
 
-block= gr.Blocks()
+block= gr.Blocks() ##instatiating my blocks class
 
 with block:
+    ##gr.Markdown(""" # Welcome to My Customer Churn Prediction App""")
+    
     input=[gr.inputs.Slider(minimum=0, maximum= 1, step=1, label="SeniorCitizen: Select 1 for Yes and 0 for No"),
         gr.inputs.Radio(["Yes", "No"], label="Partner: Do You Have a Partner?"),
         gr.inputs.Radio(["Yes", "No"], label="Dependents: Do You Have a Dependent?"),
@@ -105,9 +107,7 @@ with block:
      
     output= gr.outputs.HighlightedText(color_map={
      "Customer will not Churn": "green",
-     "Customer will churn": "red"}, label= "Your Output")
-    gr.themes="freddyaboulton/dracula_revamped"
-     
+     "Customer will churn": "red"}, label= "Your Output")     
     predict_btn= gr.Button("Predict")
      
     predict_btn.click(fn= predict_churn, inputs= input, outputs=output)
