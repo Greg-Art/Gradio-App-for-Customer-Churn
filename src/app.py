@@ -16,7 +16,7 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-model= joblib.load("C:/Users/Gregory Arthur/Desktop/models/LR.joblib")
+model= joblib.load("models/LR.joblib")
 
 model
 
