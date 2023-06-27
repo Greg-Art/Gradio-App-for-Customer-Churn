@@ -105,7 +105,7 @@ with block:
      
     output= gr.outputs.HighlightedText(color_map={
      "Customer will not Churn": "green",
-     "Customer will churn": "red"}, label= "Your Output", show_legend=True)
+     "Customer will churn": "red"}, label= "Your Output")
     gr.themes="freddyaboulton/dracula_revamped"
      
     predict_btn= gr.Button("Predict")
