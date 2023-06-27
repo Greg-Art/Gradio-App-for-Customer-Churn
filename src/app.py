@@ -79,10 +79,12 @@ output = gr.outputs.HighlightedText(color_map={
 
 ##building my interface and wrapping my model in the function
 
-iface = gr.Interface(title= "Customer Churn Prediction For Vodafone PLC",
-    fn=predict_churn,
-    inputs=[
-        gr.inputs.Slider(minimum=0, maximum= 1, step=1, label="SeniorCitizen: Select 1 for Yes and 0 for No"),
+##using gradio blocks to beautify my output
+
+block= gr.Blocks()
+
+with block:
+    input=[gr.inputs.Slider(minimum=0, maximum= 1, step=1, label="SeniorCitizen: Select 1 for Yes and 0 for No"),
         gr.inputs.Radio(["Yes", "No"], label="Partner: Do You Have a Partner?"),
         gr.inputs.Radio(["Yes", "No"], label="Dependents: Do You Have a Dependent?"),
         gr.inputs.Number(label="tenure: How Long Have You Been with Vodafone in Months?"),
@@ -99,10 +101,17 @@ iface = gr.Interface(title= "Customer Churn Prediction For Vodafone PLC",
             "Electronic check", "Mailed check", "Bank transfer (automatic)", "Credit card (automatic)"
         ], label="PaymentMethod"),
         gr.inputs.Number(label="MonthlyCharges"),
-        gr.inputs.Number(label="TotalCharges")
-    ],
-    outputs=output,  theme="freddyaboulton/dracula_revamped"
-)
+        gr.inputs.Number(label="TotalCharges")]
+     
+    output= gr.outputs.HighlightedText(color_map={
+     "Customer will not Churn": "green",
+     "Customer will churn": "red"}, label= "Your Output", show_legend=True)
+    gr.themes="freddyaboulton/dracula_revamped"
+     
+    predict_btn= gr.Button("Predict")
+     
+    predict_btn.click(fn= predict_churn, inputs= input, outputs=output)
 
-iface.launch(share= True )
+block.launch()
+    
 
