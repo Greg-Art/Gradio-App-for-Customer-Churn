@@ -84,7 +84,7 @@ output = gr.outputs.HighlightedText(color_map={
 block= gr.Blocks() ##instatiating my blocks class
 
 with block:
-    ##gr.Markdown(""" # Welcome to My Customer Churn Prediction App""")
+    gr.Markdown(""" # Welcome to My Customer Churn Prediction App""")
     
     input=[gr.inputs.Slider(minimum=0, maximum= 1, step=1, label="SeniorCitizen: Select 1 for Yes and 0 for No"),
         gr.inputs.Radio(["Yes", "No"], label="Partner: Do You Have a Partner?"),
