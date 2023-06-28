@@ -81,7 +81,7 @@ output = gr.outputs.HighlightedText(color_map={
 
 ##using gradio blocks to beautify my output
 
-block= gr.Blocks() ##instatiating my blocks class
+block= gr.Blocks(theme= "freddyaboulton/dracula_revamped") ##instatiating my blocks class
 
 with block:
     gr.Markdown(""" # Welcome to My Customer Churn Prediction App""")
@@ -90,20 +90,20 @@ with block:
         gr.inputs.Radio(["Yes", "No"], label="Partner: Do You Have a Partner?"),
         gr.inputs.Radio(["Yes", "No"], label="Dependents: Do You Have a Dependent?"),
         gr.inputs.Number(label="tenure: How Long Have You Been with Vodafone in Months?"),
-        gr.inputs.Radio(["DSL", "Fiber optic", "No"], label="InternetService"),
-        gr.inputs.Radio(["Yes", "No", "No internet service"], label="OnlineSecurity"),
-        gr.inputs.Radio(["Yes", "No", "No internet service"], label="OnlineBackup"),
-        gr.inputs.Radio(["Yes", "No", "No internet service"], label="DeviceProtection"),
-        gr.inputs.Radio(["Yes", "No", "No internet service"], label="TechSupport"),
-        gr.inputs.Radio(["Yes", "No", "No internet service"], label="StreamingTV"),
-        gr.inputs.Radio(["Yes", "No", "No internet service"], label="StreamingMovies"),
-        gr.inputs.Radio(["Month-to-month", "One year", "Two year"], label="Contract"),
-        gr.inputs.Radio(["Yes", "No"], label="PaperlessBilling"),
+        gr.inputs.Radio(["DSL", "Fiber optic", "No"], label="What Internet Service Do You Use?"),
+        gr.inputs.Radio(["Yes", "No", "No internet service"], label="Do You Have Online Security?"),
+        gr.inputs.Radio(["Yes", "No", "No internet service"], label="Do You Have Any Online Backup Service?"),
+        gr.inputs.Radio(["Yes", "No", "No internet service"], label="Do You Use Any Device Protection?"),
+        gr.inputs.Radio(["Yes", "No", "No internet service"], label="Do You Use TechSupport?"),
+        gr.inputs.Radio(["Yes", "No", "No internet service"], label="Do You Stream TV?"),
+        gr.inputs.Radio(["Yes", "No", "No internet service"], label="Do You Stream Movies?"),
+        gr.inputs.Radio(["Month-to-month", "One year", "Two year"], label="What Is Your Contract Type?"),
+        gr.inputs.Radio(["Yes", "No"], label=" Do You Use Paperless Billing?"),
         gr.inputs.Radio([
             "Electronic check", "Mailed check", "Bank transfer (automatic)", "Credit card (automatic)"
-        ], label="PaymentMethod"),
-        gr.inputs.Number(label="MonthlyCharges"),
-        gr.inputs.Number(label="TotalCharges")]
+        ], label="What Payment Method Do You Use?"),
+        gr.inputs.Number(label="What is you Monthly Charges?"),
+        gr.inputs.Number(label="How Much Is Your Total Charges?")]
      
     output= gr.outputs.HighlightedText(color_map={
      "Customer will not Churn": "green",
